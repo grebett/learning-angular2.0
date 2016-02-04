@@ -1,11 +1,15 @@
-
-function operation(name: string, n1: number, n2: number, fn: (n1: number, n2: number) => number): number {
-	console.log("Executing operation: ", name);
-	return fn(n1, n2);
+interface Point {
+	x: number;
+	y: number;
 }
 
-function multiply(n1: number, n2: number): number {
-	return n1 * n2;
+
+var makePoint = function(): { x: number, y: number } {
+	return {x: 1, y: -1}
 }
 
-console.log(operation("multiply", 12, 12, multiply));
+var f: { (): Point; }; // interface with bare fn signature
+var g: () => Point; // classic fn type
+
+f = makePoint // ok
+g = f // ok too
