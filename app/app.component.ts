@@ -1,9 +1,6 @@
 import {Component} from "angular2/core";
-
-interface Hero {
-	id: number;
-	name: string;
-}
+import {Hero} from "./hero.ts";
+import {HeroDetailsComponent} from './hero-details.component';
 
 @Component({
 	selector: "my-app",
@@ -15,9 +12,7 @@ interface Hero {
 				<span class="badge">{{hero.id}}</span> {{hero.name}}
 			</li>
 		</ul>
-		<div *ngIf="selectedHero">
-			You have selected: {{selectedHero.name}}
-		</div>
+		<my-hero-details [hero]="selectedHero"></my-hero-details>
 	`,
 	styles: [`
 		.selected {
@@ -66,7 +61,8 @@ interface Hero {
 			margin-right: .8em;
 			border-radius: 4px 0px 0px 4px;
 		}
-	`]
+	`],
+	directives: [HeroDetailsComponent]
 })
 
 export class AppComponent{
