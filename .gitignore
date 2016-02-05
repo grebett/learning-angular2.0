@@ -1,3 +1,7 @@
 .vscode
 js
 node_modules
+*.js
+**/*.js
+**/*.js.map
+**/*.map
