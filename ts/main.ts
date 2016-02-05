@@ -1,11 +1,8 @@
-const enum Days {
-	SUNDAY,
-	MONDAY,
-	TUESDAY,
-	WENESDAY,
-	THURSDAY,
-	FRIDAY,
-	SATURDAY
+namespace Mod {
+	var s = "hello"
+	export function f(): string {
+		return s
+	}
 }
 
-console.log(Days.SUNDAY)
+Mod.f()
