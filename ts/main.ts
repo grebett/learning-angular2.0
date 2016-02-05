@@ -3,13 +3,22 @@ interface Point {
 	y: number;
 }
 
-
-var makePoint = function(): { x: number, y: number } {
-	return {x: 1, y: -1}
+function getX(p: Point): number {
+	return p.x;
 }
 
-var f: { (): Point; }; // interface with bare fn signature
-var g: () => Point; // classic fn type
+class Point3D {
+	x: number;
+	y: number;
+	z: number;
+	
+	constructor(x: number, y: number, z: number) {
+		this.x = x;
+		this.y = y;
+		this.z = z;
+	}
+}
 
-f = makePoint // ok
-g = f // ok too
+var point = new Point3D(1, 2, 3)
+
+console.log(getX(point))
