@@ -10,16 +10,19 @@ import {Directive, ElementRef, Input} from 'angular2/core';
 
 export class HighlightDirective{
 	@Input('myHighlight') highlightColor: string;
-	// or if we prefer that the property is named as the directive
-	// @Input() myHighlight: string;
+	@Input() set message(m: string) {
+		this._message = m;
+	}
 
 	private _defaultColor = 'cyan';
+	private _message: string;
 	
 	constructor(private el: ElementRef) {
 	}
 	
 	onMouseEnter() {
 		this._highlight(this.highlightColor || this._defaultColor);
+		console.log(this._message);
 	}
 	
 	onMouseLeave() {
