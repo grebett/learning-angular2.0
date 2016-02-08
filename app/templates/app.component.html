@@ -1,2 +1,6 @@
 <div class="main">
+	<input type="number" [(ngModel)]="n">
+	<p *myUnless="n <= 10">
+		{{n}} is greather than 10!
+	</p>
 </div>
