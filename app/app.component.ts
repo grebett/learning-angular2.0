@@ -11,6 +11,8 @@ import {ResourceService} from './resource.service';
 
 export class AppComponent implements OnInit {
 	resources: any[];
+	createdResource: any;
+
 	errorMessage: string;
 	
 	constructor(private _resourceService: ResourceService) {
@@ -18,6 +20,7 @@ export class AppComponent implements OnInit {
 	
 	ngOnInit() {
 		this.getResource();
+		this.postResource();
 	}
 
 	getResource() {
@@ -26,5 +29,13 @@ export class AppComponent implements OnInit {
 				resource => this.resources = resource,
 				error => this.errorMessage = error
 			);
+	}
+	
+	postResource() {
+		this._resourceService.createResource({"title": "hey there!"})
+			.subscribe(
+				resource => this.createdResource = resource,
+				error => this.errorMessage = error
+			)
 	}
 }
